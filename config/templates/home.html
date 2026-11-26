@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Campus Placement Portal</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Arial; }
+.navbar { background: #1a1a2e; color:white; padding: 18px 40px; display:flex; justify-content:space-between; align-items:center; }
+.navbar h1 { font-size: 22px; }
+.navbar a { color:white; text-decoration:none; margin-left:20px; font-weight:600; }
+.hero { background: linear-gradient(135deg, #667eea, #764ba2); color:white; padding: 50px 40px; text-align:center; }
+.hero h2 { font-size: 36px; margin-bottom:10px; }
+.hero p { opacity:0.9; font-size:18px; }
+.container { padding: 30px 40px; background:#f5f6fa; min-height:60vh; }
+.card { background:white; padding:25px; margin-bottom:20px; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.08); display:flex; justify-content:space-between; align-items:center; }
+.card h3 { font-size:22px; color:#1a1a2e; }
+.card p { color:#666; margin:8px 0; }
+.badge { background:#e8f5e9; color:#2e7d32; padding:5px 12px; border-radius:20px; font-size:13px; font-weight:bold; }
+.btn { background:#667eea; color:white; border:none; padding:12px 25px; border-radius:25px; font-size:15px; font-weight:bold; cursor:pointer; }
+.btn:hover { background:#5a67d8; }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+<h1>🎓 Campus Placement</h1>
+<div><a href="#">Home</a><a href="#">Jobs</a><a href="#">Login</a></div>
+</div>
+
+<div class="hero">
+<h2>Find Your Dream Job 🚀</h2>
+<p>Top companies are hiring from your campus</p>
+</div>
+
+<div class="container">
+{% for job in jobs %}
+<div class="card">
+<div>
+<h3>{{ job.title }} - {{ job.company }}</h3>
+<p>{{ job.description|linebreaksbr }}</p>
+<p><b>💰 {{ job.package }}</b> &nbsp; | &nbsp; 📍 {{ job.location }} &nbsp; | &nbsp; ⏰ {{ job.deadline }}</p>
+<span class="badge">● Active Hiring</span>
+</div>
+<a href="/apply/{{ job.id }}/"><button class="btn">Apply Now →</button></a>
+</div>
+{% empty %}
+<p style="text-align:center; font-size:20px;">Ajun kahi Job nahi.</p>
+{% endfor %}
+</div>
+
+</body>
+</html>

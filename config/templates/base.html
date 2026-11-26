@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campus Placement Portal</title>
+    <style>
+        body { font-family: Arial; margin:0; background:#f8f9fa; }
+        nav { background:#0f172a; color:white; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; }
+        nav a { color:white; text-decoration:none; margin-left:20px; font-weight:bold; }
+        .logo { font-size:20px; font-weight:bold; }
+        .container { padding:20px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">🎓 Campus Placement</div>
+        <div>
+            <a href="/">Home</a>
+            <a href="/">Jobs</a>
+            <a href="/accounts/login/">Login</a>
+            <a href="/accounts/register/">Register</a>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

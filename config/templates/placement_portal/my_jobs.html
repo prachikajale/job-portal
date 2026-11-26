@@ -1,0 +1,10 @@
+<h2>My Jobs</h2>
+
+{% for job in jobs %}
+  <p>{{ job.title }} - {{ job.company }} - {{ job.location }}</p>
+{% empty %}
+  <p>No jobs posted yet.</p>
+{% endfor %}
+
+<br>
+<a href="/accounts/dashboard/">Back to Dashboard</a>

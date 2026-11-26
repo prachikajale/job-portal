@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html><head><title>Recruiter Dashboard</title><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:#fff7ed}
+.topbar{background:linear-gradient(90deg,#ff6a00,#ee0979);color:white;padding:18px 30px;display:flex;justify-content:space-between;align-items:center}
+.topbar a{background:white;color:#ee0979;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:bold}
+.container{max-width:950px;margin:auto;padding:25px 20px}
+.banner{background:linear-gradient(135deg,#ff6a00,#ee0979);color:white;padding:30px;border-radius:20px;display:flex;justify-content:space-between;align-items:center}
+.banner h1{font-size:28px}.avatar{width:70px;height:70px;background:white;color:#ee0979;font-size:30px;font-weight:bold;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.cards{display:flex;gap:15px;margin-top:20px}.card{background:white;flex:1;padding:22px;border-radius:16px;text-align:center;box-shadow:0 5px 15px rgba(0,0,0,0.06)}
+.card h2{font-size:32px;margin:10px 0 5px}.buttons{display:flex;gap:12px;margin-top:20px;justify-content:center}
+.btn{padding:13px 28px;border-radius:12px;color:white;text-decoration:none;font-weight:bold}.btn-pink{background:#ee0979}.btn-dark{background:#333}.btn-orange{background:#ff6a00}
+</style></head><body>
+<div class="topbar"><b>🏢 Recruiter Dashboard</b><a href="/accounts/logout/">Logout</a></div>
+<div class="container"><div class="banner"><div><h1>Welcome Recruiter! 👋</h1><p>Role: {{ user.role }} | Email: {{ user.email }}</p><p>Hire best talent from our campus!</p></div><div class="avatar">R</div></div>
+<div class="cards"><div class="card"><div style="font-size:32px">📢</div><h2>{{jobs_count}}</h2><p>Jobs Posted</p></div><div class="card"><div style="font-size:32px">👥</div><h2>{{total_applicants}}</h2><p>Total Applicants</p></div><div class="card"><div style="font-size:32px">✅</div><h2>{{shortlisted_count}}</h2><p>Selected Students</p></div></div>
+<div class="buttons"><a href="/post-job" class="btn btn-pink">+ Post New Job</a><a href="{% url 'view_applicants'%}" class="btn btn-dark">👥 View Applicants</a><a href="{% url 'my_jobs'%}" class="btn btn-orange">🏢 My Jobs</a></div></div></body></html>

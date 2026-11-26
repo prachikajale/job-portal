@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html><head><title>Post New Job</title>
+<style>
+body{font-family:Arial;background:#f4f6ff;display:flex;justify-content:center;padding:30px}
+.card{background:white;padding:30px;border-radius:15px;width:450px;box-shadow:0 10px 30px rgba(0,0,0,0.1)}
+h2{color:#6a11cb;text-align:center}
+input,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box}
+button{width:100%;padding:14px;background:linear-gradient(135deg,#6a11cb,#2575fc);color:white;border:none;border-radius:8px;font-size:16px;cursor:pointer}
+a{color:#6a11cb}
+</style></head>
+<body><div class="card">
+<h2>+ Post New Job</h2>
+<form method="POST">{% csrf_token %}
+<input name="title" placeholder="Job Title (e.g. Python Developer)" required>
+<input name="company" placeholder="Company Name" required>
+<input name="package" placeholder="Package (e.g. 6 LPA)" required>
+<input name="location" placeholder="Location (e.g. Pune)" required>
+<input type="date" name="deadline" required>
+<textarea name="description" placeholder="Job Description" rows="4" required></textarea>
+<button type="submit">Post Job</button>
+</form>
+<p style="text-align:center"><a href="/">← Back to Home</a></p>
+</div></body></html>

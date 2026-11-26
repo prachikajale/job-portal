@@ -1,0 +1,14 @@
+<h1>Post New Job</h1>
+
+<form method="POST">
+  {% csrf_token %}
+  <p>Job Title: <input type="text" name="title" required></p>
+  <p>Company: <input type="text" name="company" required></p>
+  <p>Description: <br><textarea name="description" rows="4" required></textarea></p>
+  <p>Package / Salary: <input type="text" name="package" required></p>
+  <p>Location: <input type="text" name="location" required></p>
+  <p>Deadline: <input type="date" name="deadline" required></p>
+  <button type="submit">Post Job</button>
+</form>
+
+<a href="/accounts/dashboard/">Back to Dashboard</a>

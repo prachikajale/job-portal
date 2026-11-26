@@ -1,0 +1,7 @@
+<h2>Applicants</h2>
+{% for app in applications %}
+  <p>{{ app.student.username }} - {{ app.job.title }} - {{ app.status }}</p>
+{% empty %}
+  <p>Abhi koi Apply nahi hua hai.</p>
+{% endfor %}
+<a href="/accounts/dashboard/">Back to Dashboard</a>

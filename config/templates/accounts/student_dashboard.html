@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html><head><title>Student Dashboard</title><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:#f4f6ff}
+.topbar{background:linear-gradient(90deg,#6a11cb,#2575fc);color:white;padding:18px 30px;display:flex;justify-content:space-between;align-items:center}
+.topbar a{background:white;color:#6a11cb;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:bold}
+.container{max-width:950px;margin:auto;padding:25px 20px}
+.banner{background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:30px;border-radius:20px;display:flex;justify-content:space-between;align-items:center}
+.banner h1{font-size:28px}.avatar{width:70px;height:70px;background:white;color:#764ba2;font-size:30px;font-weight:bold;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.cards{display:flex;gap:15px;margin-top:20px}.card{background:white;flex:1;padding:22px;border-radius:16px;text-align:center;box-shadow:0 5px 15px rgba(0,0,0,0.06)}
+.card h2{font-size:32px;margin:10px 0 5px}.buttons{display:flex;gap:12px;margin-top:20px;justify-content:center}
+.btn{padding:13px 28px;border-radius:12px;color:white;text-decoration:none;font-weight:bold}.btn-blue{background:#2575fc}.btn-green{background:#00b894}.btn-orange{background:#f39c12}
+</style></head><body>
+<div class="topbar"><b>🎓 Student Dashboard</b><a href="/accounts/logout/">Logout</a></div>
+<div class="container"><div class="banner"><div><h1>Welcome Back! ✨</h1><p>Role: {{ user.role }} | Email: {{ user.email }}</p><p>Your dream job is waiting. Let's apply!</p></div><div class="avatar">S</div></div>
+<div class="cards"><div class="card"><div style="font-size:32px">💼</div><h2>12</h2><p>Available Jobs</p></div><div class="card"><div style="font-size:32px">📄</div><h2>0</h2><p>My Applications</p></div><div class="card"><div style="font-size:32px">🏆</div><h2>80%</h2><p>Profile Score</p></div></div>
+<div class="buttons"><a href="/" class="btn btn-blue">💼 View All Jobs →</a><a href="/" class="btn btn-green">📄 My Applications</a><a href="/my-applications/" class="btn btn-orange">👤 My Profile</a></div></div></body></html>

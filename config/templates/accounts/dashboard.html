@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard | Campus Placement Portal</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial; }
+  body { background: #f4f6ff; }
+  .topbar { background: linear-gradient(90deg, #6a11cb, #2575fc); color: white; padding: 18px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+  .topbar b { font-size: 20px; }
+  .topbar a { background: white; color: #6a11cb; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 14px; }
+  .container { max-width: 950px; margin: auto; padding: 25px 20px; }
+  .banner { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 30px; border-radius: 20px; display: flex; justify-content: space-between; align-items: center; }
+  .banner h1 { font-size: 28px; }
+  .banner p { opacity: 0.9; margin-top: 8px; }
+  .avatar { width: 70px; height: 70px; background: white; color: #764ba2; font-size: 30px; font-weight: bold; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .cards { display: flex; gap: 15px; margin-top: 20px; }
+  .card { background: white; flex: 1; padding: 22px; border-radius: 16px; box-shadow: 0 5px 15px rgba(0,0,0,0.06); text-align: center; transition: 0.3s; }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
+  .card .icon { font-size: 32px; }
+  .card h2 { font-size: 32px; margin: 10px 0 5px; color: #333; }
+  .card p { color: #777; font-size: 13px; }
+  .progress-box { background: white; padding: 20px; border-radius: 16px; margin-top: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.06); }
+  .bar { background: #eee; height: 12px; border-radius: 10px; margin-top: 10px; overflow: hidden; }
+  .fill { background: linear-gradient(90deg, #00b894, #00cec9); height: 100%; width: 80%; border-radius: 10px; }
+  .buttons { display: flex; gap: 12px; margin-top: 20px; justify-content: center; }
+  .btn { padding: 13px 28px; border-radius: 12px; color: white; text-decoration: none; font-weight: bold; }
+  .btn-blue { background: #2575fc; } .btn-green { background: #00b894; } .btn-orange { background: #f39c12; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <b>🎓 Campus Placement Portal</b>
+  <a href="/accounts/logout/">Logout</a>
+</div>
+
+<div class="container">
+  <div class="banner">
+    <div>
+      <h1>Welcome Back! ✨</h1>
+      <p>Role: {{ user.role }} | Email: {{ user.email }}</p>
+      <p>Your dream job is waiting for you. Let's apply!</p>
+    </div>
+    <div class="avatar">P</div>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="icon">💼</div><h2>12</h2><p>Available Jobs</p><small style="color:green">● 3 New Today</small></div>
+    <div class="card"><div class="icon">📄</div><h2>0</h2><p>My Applications</p><small style="color:#999">No applications yet</small></div>
+    <div class="card"><div class="icon">🏆</div><h2>80%</h2><p>Profile Score</p><small style="color:orange">Almost Done!</small></div>
+  </div>
+
+  <div class="progress-box">
+    <b>🚀 Your Profile Progress - 80%</b>
+    <div class="bar"><div class="fill"></div></div>
+    <p style="font-size:13px; color:#777; margin-top:8px;">Add your Resume & Skills to reach 100% and get more interview calls!</p>
+  </div>
+
+  <div class="buttons">
+    <a href="#" class="btn btn-blue">💼 View All Jobs →</a>
+    <a href="#" class="btn btn-green">📄 My Applications</a>
+    <a href="#" class="btn btn-orange">👤 My Profile</a>
+  </div>
+</div>
+
+</body>
+</html>
