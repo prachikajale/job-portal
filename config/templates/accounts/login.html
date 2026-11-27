@@ -4,57 +4,78 @@
 <head>
 <title>Login | Campus Placement</title>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif; }
-body{
-  height:100vh; display:flex; align-items:center; justify-content:center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-.card{
-  background:white; width:400px; padding:40px 35px; border-radius:20px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.3); text-align:center;
-}
-.logo{ font-size:45px; margin-bottom:10px; }
-.card h1{ font-size:28px; color:#2d3748; margin-bottom:5px; }
-.card p{ color:#718096; font-size:14px; margin-bottom:25px; }
-label{ display:block; text-align:left; font-weight:600; font-size:14px; color:#4a5568; margin:12px 0 5px; }
-input{
-  width:100%; padding:13px 15px; border:2px solid #e2e8f0; border-radius:10px;
-  font-size:15px; outline:none; transition:0.3s;
-}
-input:focus{ border-color:#667eea; box-shadow:0 0 0 3px rgba(102,126,234,0.15); }
-button{
-  width:100%; margin-top:22px; padding:14px; border:none; border-radius:10px;
-  background: linear-gradient(135deg, #667eea, #764ba2); color:white;
-  font-size:16px; font-weight:700; cursor:pointer; transition:0.3s;
-}
-button:hover{ transform:translateY(-2px); box-shadow:0 10px 20px rgba(102,126,234,0.4); }
-.link{ margin-top:18px; font-size:14px; color:#718096; }
-.link a{ color:#667eea; font-weight:700; text-decoration:none; }
-.badge{ display:inline-block; background:#ebf4ff; color:#667eea; padding:5px 12px; border-radius:20px; font-size:12px; font-weight:700; margin-top:15px; }
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{height:100vh;display:flex;overflow:hidden;background:#f8f9fb}
+/* LEFT - DARK PROFESSIONAL */
+.left{flex:1.15;background:#0f2440;padding:55px 60px;display:flex;flex-direction:column;justify-content:space-between;color:white}
+.top-logo{font-size:20px;font-weight:800;letter-spacing:.5px}
+.top-logo span{color:#c9a227}
+.left h1{font-size:44px;line-height:1.15;font-weight:700;margin:20px 0}
+.left h1 span{color:#c9a227}
+.left p{font-size:16px;line-height:1.7;color:#cbd5e1}
+.divider{width:50px;height:3px;background:#c9a227;margin:22px 0}
+.companies{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.companies span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:8px 14px;border-radius:6px;font-size:13px;font-weight:600}
+.bottom{font-size:13px;color:#94a3b8;border-top:1px solid rgba(255,255,255,.15);padding-top:18px}
+/* RIGHT - CLEAN ELEGANT */
+.right{flex:1;background:#f8f9fb;display:flex;align-items:center;justify-content:center;padding:30px}
+.box{width:100%;max-width:420px;background:white;padding:38px 36px;border-radius:8px;box-shadow:0 4px 24px rgba(15,36,64,.08);border-top:4px solid #0f2440}
+.box h2{font-size:27px;color:#0f2440}
+.box p{color:#64748b;margin:8px 0 28px;font-size:14px}
+label{font-size:13px;font-weight:700;color:#334155;letter-spacing:.3px}
+input{width:100%;padding:13px 14px;margin:8px 0 18px;border:1px solid #cbd5e1;border-radius:6px;background:white;outline:none;font-size:15px;color:#0f172a}
+input:focus{border-color:#0f2440;box-shadow:0 0 0 3px rgba(15,36,64,.08)}
+.row{display:flex;justify-content:space-between;font-size:13px;margin:-8px 0 20px}
+.row a{color:#0f2440;font-weight:600;text-decoration:none}
+button{width:100%;padding:14px;border:none;border-radius:6px;background:#0f2440;color:white;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.3px}
+button:hover{background:#1a3a5f}
+.register{text-align:center;margin-top:20px;font-size:14px;color:#64748b}
+.register a{color:#0f2440;font-weight:700;text-decoration:none}
+.back{text-align:center;margin-top:12px}
+.back a{font-size:13px;color:#94a3b8;text-decoration:none}
+@media(max-width:800px){.left{display:none}}
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="logo">🎓</div>
-  <h1>Welcome Back!</h1>
-  <p>Campus Placement Portal</p>
-  <form method="POST">
-    {% csrf_token %}
-    {% if messages %}
-      {% for message in messages %}
-        <p style="background:#ffe0e0; color:#c53030; padding:10px; border-radius:8px; font-size:14px; font-weight:600;">{{ message }}</p>
-      {% endfor %}
-    {% endif %}
-    {% if form.errors %}
-      <p style="background:#ffe0e0; color:#c53030; padding:10px; border-radius:8px; font-size:14px; font-weight:600;">Invalid Username or Password! Try again.</p>
-    {% endif %}
-    <label>Username</label>
-    <input type="text" name="username" placeholder="e.g. tcs_company" required>
-    <label>Password</label>
-    <input type="password" name="password" placeholder="Enter your password" required>
-    <button type="submit">Login →</button>
-  </form>
-  <div class="link">No account? <a href="{% url 'register' %}">Register</a></div>
+
+<div class="left">
+  <div class="top-logo">CAMPUS <span>PLACEMENT</span></div>
+  <div>
+    <div class="divider"></div>
+    <h1>Building Careers,<br><span>Connecting Talent.</span></h1>
+    <p>Access exclusive placement drives, interviews and offers from India's leading companies. One portal for your entire placement journey.</p>
+    <div class="companies"><span>TCS</span><span>INFOSYS</span><span>WIPRO</span><span>ACCENTURE</span><span>DELOITTE</span></div>
+  </div>
+  <div class="bottom">Trusted by 500+ Colleges & 12,000+ Students across India</div>
 </div>
+
+<div class="right">
+  <div class="box">
+    <h2>Welcome Back</h2>
+    <p>Please sign in to your account to continue.</p>
+    <form method="POST">
+      {% csrf_token %}
+      <label>USERNAME</label>
+      <input type="text" name="username" placeholder="Enter your username" required>
+      <label>PASSWORD</label>
+      <div style="position:relative">
+  <input id="passInput" type="password" name="password" placeholder="Enter your password" required style="padding-right:45px">
+  <span onclick="togglePass()" id="eyeIcon" style="position:absolute;right:14px;top:19px;cursor:pointer;font-size:20px;user-select:none">👁️</span>
+</div><script>
+function togglePass(){
+  var x = document.getElementById("passInput");
+  var e = document.getElementById("eyeIcon");
+  if(x.type === "password"){ x.type = "text";e.textContent="🙈" }
+  else { x.type = "password";e.textContent="👁️";}
+}
+</script>
+      <div class="row"><label style="font-weight:400"><input type="checkbox" style="width:auto;margin:0 5px 0 0"> Remember me</label><a href="#">Forgot password?</a></div>
+      <button type="submit">SIGN IN →</button>
+    </form>
+    <div class="register">Don't have an account? <a href="/accounts/register/">Create Account</a></div>
+    <div class="back"><a href="/">← Back to Home</a></div>
+  </div>
+</div>
+
 </body>
 </html>

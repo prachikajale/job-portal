@@ -1,6 +1,47 @@
-<h2>Apply for {{ job.title }} - {{ job.company }}</h2>
-<form method="POST" enctype="multipart/form-data">
+<!DOCTYPE html>
+<html>
+<head>
+<title>Apply - {{ job.title }}</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:#f1f5f9;display:flex;justify-content:center;padding:40px 15px}
+.card{background:white;width:100%;max-width:600px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.1);overflow:hidden}
+.top{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:white;padding:28px}
+.top h2{font-size:22px}
+.top p{opacity:0.9;margin-top:5px;font-size:14px}
+.top span{background:rgba(255,255,255,0.25);padding:4px 10px;border-radius:20px;font-size:12px}
+.form{padding:28px}
+label{display:block;font-weight:600;font-size:14px;margin:16px 0 6px;color:#334155}
+input,textarea{width:100%;padding:12px;border:1.5px solid #e2e8f0;border-radius:10px;outline:none;font-size:14px}
+input:focus,textarea:focus{border-color:#4f46e5}
+textarea{height:110px;resize:none}
+.btn{width:100%;background:#4f46e5;color:white;border:none;padding:14px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:22px}
+.btn:hover{background:#4338ca}
+.back{display:block;text-align:center;margin-top:14px;color:#64748b;text-decoration:none;font-size:14px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top">
+    <span>💼 {{ job.company }}</span>
+    <h2 style="margin-top:12px">Apply for {{ job.title }}</h2>
+    <p>📍 {{ job.location }} &nbsp; • &nbsp; 💰 {{ job.salary }}</p>
+  </div>
+  <form class="form" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit Application</button>
-</form>
+    <label>Full Name</label>
+    {{ form.full_name }}
+    <label>Email Address</label>
+    {{ form.email }}
+    <label>Phone Number</label>
+    {{ form.phone }}
+    <label>Cover Letter</label>
+    {{ form.cover_letter }}
+    <label>Upload Resume (PDF)</label>
+    {{ form.resume }}
+    <button class="btn" type="submit">Submit Application →</button>
+    <a class="back" href="/">← Back to All Jobs</a>
+  </form>
+</div>
+</body>
+</html>

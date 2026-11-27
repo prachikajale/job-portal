@@ -1,3 +1,4 @@
+from placement_portal.models import Job, Application
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
@@ -35,7 +36,15 @@ def logout_view(request):
 @login_required
 def dashboard(request):
     if request.user.role == 'company' or request.user.role == 'tpo':
-        return render(request, 'accounts/recruiter_dashboard.html')
-    else:
-        return render(request, 'accounts/student_dashboard.html')
+        my_jobs = Job.objects.all()
+        jobs_count = my_jobs.count()
+        total_applicants = Application.objects.filter(job__in=my_jobs).count()
+        shortlisted_count = Application.objects.filter(job__in=my_jobs, status='shortlisted').count()
+
+        return render(request, 'accounts/recruiter_dashboard.html', {
+            'jobs_count': jobs_count,
+            'total_applicants': total_applicants,
+            'shortlisted_count': shortlisted_count,
+            'my_jobs': my_jobs,
+        })
 

@@ -1,12 +1,36 @@
-{% extends 'base.html' %}
-{% block content %}
-<div style="max-width:400px; margin:50px auto; padding:30px; background:white; border-radius:10px; box-shadow:0 0 10px #ddd;">
-<h2 style="text-align:center;">Create Account</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" style="width:100%; padding:10px; background:#2563eb; color:white; border:none; border-radius:5px;">Register</button>
+<!DOCTYPE html>
+<html><head><title>Create Account | Placement Portal</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:linear-gradient(135deg,#0F2340,#1A365D);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{background:white;width:100%;max-width:460px;border-radius:20px;padding:38px 36px;box-shadow:0 20px 50px rgba(0,0,0,0.3);border-top:6px solid #C9A227}
+.logo{width:60px;height:60px;background:#0F2340;color:#C9A227;font-size:28px;font-weight:800;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+h1{text-align:center;color:#0F2340;font-size:26px}
+.sub{text-align:center;color:#777;font-size:14px;margin:8px 0 24px}
+label{display:block;color:#0F2340;font-weight:700;font-size:13px;margin:14px 0 6px}
+input,select{width:100%;padding:12px 14px;border:1.5px solid #E5E7EB;border-radius:10px;font-size:14px;outline:none;background:#F8F9FA}
+input:focus,select:focus{border-color:#C9A227;background:white}
+.help{font-size:12px;color:#888;margin-top:5px;line-height:1.5}
+.help ul{padding-left:16px;margin-top:4px}
+.btn{width:100%;background:#0F2340;color:white;border:none;padding:14px;border-radius:10px;font-size:16px;font-weight:700;margin-top:22px;cursor:pointer}
+.btn:hover{background:#C9A227;color:#0F2340}
+.login{text-align:center;margin-top:18px;color:#666;font-size:14px}
+.login a{color:#0F2340;font-weight:700}
+</style></head><body>
+<div class="card">
+<div class="logo">P</div>
+<h1>Create Account</h1>
+<p class="sub">Join Placement Portal to apply for jobs</p>
+<form method="post">{% csrf_token %}
+<label>Username</label>{{ form.username }}
+<div class="help">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</div>
+<label>Email Address</label>{{ form.email }}
+<label>Role</label>{{ form.role }}
+<label>Password</label>{{ form.password1 }}
+<div class="help"><ul><li>Your password can't be too similar to your other personal information.</li><li>Must contain at least 8 characters.</li><li>Can't be a commonly used password.</li><li>Can't be entirely numeric.</li></ul></div>
+<label>Password Confirmation</label>{{ form.password2 }}
+<div class="help">Enter the same password as before, for verification.</div>
+<button class="btn" type="submit">Create Account →</button>
 </form>
-<p style="text-align:center; margin-top:15px;">Already have account? <a href="/accounts/login/">Login</a></p>
-</div>
-{% endblock %}
+<p class="login">Already have an account? <a href="/accounts/login/">Login</a></p>
+</div></body></html>

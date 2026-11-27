@@ -1,17 +1,37 @@
-<!DOCTYPE html>
-<html><head><title>Student Dashboard</title><style>
+<html><head><title>Student Dashboard</title>
+<style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
-body{background:#f4f6ff}
-.topbar{background:linear-gradient(90deg,#6a11cb,#2575fc);color:white;padding:18px 30px;display:flex;justify-content:space-between;align-items:center}
-.topbar a{background:white;color:#6a11cb;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:bold}
-.container{max-width:950px;margin:auto;padding:25px 20px}
-.banner{background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:30px;border-radius:20px;display:flex;justify-content:space-between;align-items:center}
-.banner h1{font-size:28px}.avatar{width:70px;height:70px;background:white;color:#764ba2;font-size:30px;font-weight:bold;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.cards{display:flex;gap:15px;margin-top:20px}.card{background:white;flex:1;padding:22px;border-radius:16px;text-align:center;box-shadow:0 5px 15px rgba(0,0,0,0.06)}
-.card h2{font-size:32px;margin:10px 0 5px}.buttons{display:flex;gap:12px;margin-top:20px;justify-content:center}
-.btn{padding:13px 28px;border-radius:12px;color:white;text-decoration:none;font-weight:bold}.btn-blue{background:#2575fc}.btn-green{background:#00b894}.btn-orange{background:#f39c12}
+body{background:#F1F4F8}
+.navbar{background:#0F2340;color:white;padding:16px 40px;display:flex;justify-content:space-between;align-items:center}
+.navbar b{font-size:18px}
+.navbar b span{color:#C9A227}
+.navbar a{background:#C9A227;color:#0F2340;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:700;font-size:14px}
+.container{max-width:900px;margin:0 auto;padding:28px 20px}
+.welcome{background:linear-gradient(135deg,#0F2340,#1A365D);color:white;padding:32px;border-radius:18px;display:flex;justify-content:space-between;align-items:center;border-left:6px solid #C9A227}
+.welcome h1{font-size:28px}
+.welcome p{color:#D1D5DB;margin-top:6px;font-size:14px;line-height:1.6}
+.avatar{width:64px;height:64px;background:#C9A227;color:#0F2340;font-size:28px;font-weight:800;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:22px 0}
+.stat{background:white;padding:28px 20px;border-radius:16px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.06);border-top:3px solid #C9A227}
+.stat .icon{font-size:26px}
+.stat h2{font-size:32px;color:#0F2340;margin:10px 0 4px}
+.stat p{color:#777;font-size:14px}
+.actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{background:#0F2340;color:white;padding:13px 24px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px}
+.btn-gold{background:#C9A227;color:#0F2340;padding:13px 24px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px}
+.btn:hover{opacity:0.9}
 </style></head><body>
-<div class="topbar"><b>🎓 Student Dashboard</b><a href="/accounts/logout/">Logout</a></div>
-<div class="container"><div class="banner"><div><h1>Welcome Back! ✨</h1><p>Role: {{ user.role }} | Email: {{ user.email }}</p><p>Your dream job is waiting. Let's apply!</p></div><div class="avatar">S</div></div>
-<div class="cards"><div class="card"><div style="font-size:32px">💼</div><h2>12</h2><p>Available Jobs</p></div><div class="card"><div style="font-size:32px">📄</div><h2>0</h2><p>My Applications</p></div><div class="card"><div style="font-size:32px">🏆</div><h2>80%</h2><p>Profile Score</p></div></div>
-<div class="buttons"><a href="/" class="btn btn-blue">💼 View All Jobs →</a><a href="/" class="btn btn-green">📄 My Applications</a><a href="/my-applications/" class="btn btn-orange">👤 My Profile</a></div></div></body></html>
+<div class="navbar"><b>🎓 Placement <span>Portal</span> | Student Dashboard</b><a href="/accounts/logout/">Logout</a></div>
+<div class="container">
+<div class="welcome"><div><h1>Welcome Back, {{ user.username }}!</h1><p>Role: {{ user.profile.role|default:"student" }} | Email: {{ user.email }}<br>Your dream job is waiting. Let's apply!</p></div><div class="avatar">{{ user.username|first|upper }}</div></div>
+<div class="stats">
+<div class="stat"><div class="icon">💼</div><h2>{{ total_jobs|default:"12" }}</h2><p>Available Jobs</p></div>
+<div class="stat"><div class="icon">📄</div><h2>{{ my_applications|default:"0" }}</h2><p>My Applications</p></div>
+<div class="stat"><div class="icon">🏆</div><h2>{{ profile_score|default:"80" }}%</h2><p>Profile Score</p></div>
+</div>
+<div class="actions">
+<a class="btn" href="/home/">💼 View All Jobs →</a>
+<a class="btn" style="background:#1A365D" href="/my-jobs/">📄 My Applications</a>
+<a class="btn-gold" href="/profile/">👤 My Profile</a>
+</div>
+</div></body></html>

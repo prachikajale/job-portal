@@ -1,0 +1,10 @@
+{% extends "admin/index.html" %}
+{% block content %}
+<div style="display:grid; grid-template-columns:repeat(4,1fr); gap:15px; margin-bottom:25px;">
+  <div style="background:#0f172a; color:white; padding:20px; border-radius:14px;"><div style="font-size:13px; opacity:0.8;">Total Jobs</div><div style="font-size:26px; font-weight:800; margin-top:5px;">Manage →</div></div>
+  <div style="background:#0ea5e9; color:white; padding:20px; border-radius:14px;"><div style="font-size:13px; opacity:0.9;">Applications</div><div style="font-size:26px; font-weight:800; margin-top:5px;">View All →</div></div>
+  <div style="background:white; border:1.5px solid #e2e8f0; padding:20px; border-radius:14px;"><div style="font-size:13px; color:#64748b;">Students</div><div style="font-size:26px; font-weight:800; margin-top:5px;">Profiles →</div></div>
+  <div style="background:white; border:1.5px solid #e2e8f0; padding:20px; border-radius:14px;"><div style="font-size:13px; color:#64748b;">View Website</div><div style="font-size:26px; font-weight:800; margin-top:5px;"><a href="/" style="color:#0ea5e9; text-decoration:none;">Open ↗</a></div></div>
+</div>
+{{ block.super }}
+{% endblock %}

@@ -1,10 +1,62 @@
-<h2>My Jobs</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Jobs | Placement Portal</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:#F1F4F8;padding:25px}
+.container{max-width:1150px;margin:auto}
+.header{background:linear-gradient(135deg,#0F2340,#1A365D);color:white;padding:28px 30px;border-radius:16px;display:flex;justify-content:space-between;align-items:center;border-left:6px solid #C9A227;margin-bottom:22px}
+.header h1{font-size:26px}
+.header p{color:#D1D5DB;margin-top:4px}
+.badge{background:#C9A227;color:#0F2340;padding:8px 16px;border-radius:20px;font-weight:bold;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:white;border-radius:16px;padding:22px;box-shadow:0 4px 15px rgba(0,0,0,0.08);border-top:3px solid #C9A227}
+.logo{width:48px;height:48px;background:#0F2340;color:#C9A227;font-weight:bold;font-size:22px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.card h3{color:#0F2340;font-size:18px}
+.card small{color:#888}
+.loc{color:#555;font-size:13px;margin:12px 0}
+.active{color:#0F2340;font-weight:700}
+.desc{color:#666;font-size:14px;line-height:1.5;margin-bottom:16px}
+.btn{background:#0F2340;color:white;padding:10px 16px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;display:inline-block}
+.btn:hover{background:#C9A227;color:#0F2340}
+</style>
+</head>
+<body>
 
-{% for job in jobs %}
-  <p>{{ job.title }} - {{ job.company }} - {{ job.location }}</p>
+<div class="header">
+  <div>
+    <h1>My Jobs</h1>
+    <p>All jobs posted by you</p>
+  </div>
+  <div class="badge">Total: {{ jobs|length }} Jobs</div>
+</div>
+
+<div class="grid">
+{% for j in jobs %}
+<div class="card">
+  <div class="top">
+    <div class="logo">{{ j.company|first }}</div>
+    <div>
+      <h3>{{ j.title }}</h3>
+      <div class="comp">{{ j.company }}</div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag">📍 {{ j.location }}</span>
+    {% if j.salary %}<span class="tag tag-green">💰 {{ j.salary }}</span>{% endif %}
+    <span class="tag tag-green">● Active</span>
+  </div>
+  <p style="color:#64748b; font-size:14px; margin-bottom:16px;">{{ j.description|truncatewords:15 }}</p>
+  <a class="btn btn-view" href="{% url 'view_applicants' j.id %}">👥 View Applicants →</a>
+</div>
 {% empty %}
-  <p>No jobs posted yet.</p>
+<p style="background:white; padding:30px; border-radius:16px;">No jobs posted yet.</p>
 {% endfor %}
+</div>
 
 <br>
-<a href="/accounts/dashboard/">Back to Dashboard</a>
+<a class="btn-back" href="/dashboard/">← Back to Dashboard</a>
+
+</body>
+</html>

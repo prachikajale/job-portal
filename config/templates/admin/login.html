@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  .admin-wrap{background:#eef2f7; padding:50px 15px; margin:-20px -15px 0; min-height:75vh; display:flex; align-items:center; justify-content:center;}
+  .admin-box{width:100%; max-width:420px; background:white; padding:35px 30px; border-radius:16px; box-shadow:0 15px 35px rgba(15,23,42,0.15); text-align:center; border-top:6px solid #0f172a;}
+  .admin-icon{width:60px; height:60px; background:#0f172a; color:white; font-size:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 12px;}
+  .admin-box h2{color:#0f172a; font-size:24px; margin-bottom:4px;}
+  .admin-box p{color:#64748b; font-size:14px; margin-bottom:22px;}
+  .admin-box label{display:block; text-align:left; font-weight:600; font-size:14px; color:#0f172a; margin-top:10px;}
+  .admin-box input{width:100%; padding:12px; margin:6px 0 10px; border:1.5px solid #e2e8f0; border-radius:10px; background:#f8fafc; outline:none; font-size:15px;}
+  .admin-box input:focus{border-color:#0ea5e9; background:white;}
+  .admin-box button{width:100%; padding:13px; margin-top:15px; border:none; border-radius:10px; background:#0ea5e9; color:white; font-size:16px; font-weight:700; cursor:pointer;}
+  .admin-box button:hover{background:#0284c7;}
+  .admin-box a{font-size:13px; color:#0f172a; text-decoration:none;}
+  .error{background:#fee2e2; color:#dc2626; padding:10px; border-radius:8px; font-size:13px; margin-bottom:10px;}
+</style>
+
+<div class="admin-wrap">
+  <div class="admin-box">
+    <div class="admin-icon">🎓</div>
+    <h2>Placement Portal</h2>
+    <p>Admin Panel - Welcome Back!</p>
+
+    {% if form.errors %}
+    <div class="error">Username / Password chukicha ahe!</div>
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+      <label>Username</label>
+      <input type="text" name="username" placeholder="Enter username" required autofocus>
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Enter password" required>
+      <button type="submit">Login →</button>
+    </form>
+    <br>
+    <a href="/">← Back to Website</a>
+  </div>
+</div>
+{% endblock %}

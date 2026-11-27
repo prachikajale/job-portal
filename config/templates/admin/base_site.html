@@ -1,0 +1,66 @@
+{% extends "admin/base.html" %}
+{% block title %}Placement Portal | Admin{% endblock %}
+{% block branding %}
+<h1 style="margin:0; font-size:20px;">
+  <a href="{% url 'admin:index' %}" style="color:white; text-decoration:none; font-weight:800;">🎓 Placement Portal <span style="background:#0ea5e9; font-size:11px; padding:3px 8px; border-radius:20px; margin-left:8px;">ADMIN</span></a>
+</h1>
+{% endblock %}
+{% block extrastyle %}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{font-family:'Inter', sans-serif !important;}
+  body{background:#eef2f7 !important;}
+  #header{background:#0f172a !important; padding:18px 30px !important;}
+  #header a{color:white !important;}
+  #user-tools a{color:#38bdf8 !important; font-weight:600;}
+
+  #content{max-width:1150px !important; margin:30px auto !important; background:white !important; border-radius:18px !important; padding:30px !important; box-shadow:0 10px 30px rgba(15,23,42,0.08) !important;}
+  #content h1{font-size:26px !important; font-weight:800 !important; color:#0f172a !important;}
+
+  .module h2, .module caption{background:#0f172a !important; color:white !important; padding:12px 18px !important; font-size:13px !important; letter-spacing:1px; border-radius:10px 10px 0 0 !important;}
+  .module{background:white !important; border:1px solid #e2e8f0 !important; border-radius:10px !important; overflow:hidden; margin-bottom:20px !important;}
+  .module td, .module th{padding:14px 18px !important; border-bottom:1px solid #f1f5f9 !important;}
+
+  /* === ADD - SKY BLUE - FINAL === */
+  #content .module td a.addlink, a.addlink{
+    background:#0ea5e9 !important; color:white !important;
+    padding:7px 16px !important; border-radius:20px !important;
+    font-weight:700 !important; font-size:12px !important; border:none !important;
+  }
+
+  /* === CHANGE - BLACK - FINAL === */
+  #content .module td a.changelink, a.changelink{
+    background:#0f172a !important; color:white !important;
+    padding:7px 16px !important; border-radius:20px !important;
+    font-weight:700 !important; font-size:12px !important; border:none !important;
+  }
+  a.addlink:hover{background:#0284c7 !important;}
+  a.changelink:hover{background:#1e293b !important; color:#38bdf8 !important;}
+
+  /* === RECENT ACTIONS - FINAL === */
+  #content #recent-actions-module{
+    background:white !important; border:1.5px solid #e2e8f0 !important;
+    border-radius:14px !important; overflow:hidden !important;
+  }
+  #content #recent-actions-module h2{
+    background:#0f172a !important; color:white !important;
+    padding:14px 18px !important; font-size:13px !important;
+  }
+  #content #recent-actions-module li{
+    background:#f8fafc !important; margin:6px 8px !important;
+    padding:10px 12px !important; border-radius:10px !important;
+    border-left:4px solid #0ea5e9 !important;
+  }
+  #content #recent-actions-module li a{color:#0f172a !important; font-weight:600 !important;}
+  .breadcrumbs{background:#0f172a !important; color:#94a3b8 !important; padding:12px 30px !important;}
+  .breadcrumbs a{color:#38bdf8 !important;}
+
+  .module table{border:none !important;}
+  .module td, .module th{
+    border-bottom:none !important;
+    border-top:1px solid
+  }
+  .module tr:first-child td{border-top:none !important;}
+</style>
+{% endblock %}
+

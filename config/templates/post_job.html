@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><head><title>Post New Job</title><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:#F1F4F8}
+.topbar{background:#0F2340;color:white;padding:18px 30px;display:flex;justify-content:space-between;align-items:center}
+.topbar a{background:#C9A227;color:#0F2340;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:bold}
+.container{max-width:700px;margin:30px auto;background:white;padding:35px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.1);border-top:5px solid #C9A227}
+h1{color:#0F2340;font-size:26px;margin-bottom:5px}
+p{color:#666;margin-bottom:25px}
+label{font-weight:600;color:#0F2340;display:block;margin:15px 0 6px}
+input,select,textarea{width:100%;padding:12px;border:1.5px solid #ddd;border-radius:10px;font-size:15px;outline:none}
+input:focus,textarea:focus,select:focus{border-color:#0F2340}
+.row{display:flex;gap:15px}.row div{flex:1}
+.btn{width:100%;background:#C9A227;color:#0F2340;border:none;padding:14px;border-radius:12px;font-size:17px;font-weight:bold;cursor:pointer;margin-top:25px}
+.btn:hover{background:#0F2340;color:white}
+</style></head><body>
+<div class="topbar"><div>🎓 Campus Placement Portal</div><a href="/accounts/dashboard/">Back to Dashboard</a></div>
+<div class="container">
+<h1>Post New Job</h1>
+<p>Fill the details to publish a new job for students.</p>
+<form method="POST">
+<label>Job Title</label><input type="text" placeholder="e.g. Python Developer" required>
+<label>Company Name</label><input type="text" placeholder="e.g. Infosys" required>
+<div class="row"><div><label>Location</label><input type="text" placeholder="Pune"></div><div><label>Salary Package</label><input type="text" placeholder="e.g. 6 LPA"></div></div>
+<div class="row"><div><label>Job Type</label><select><option>Full Time</option><option>Internship</option><option>Part Time</option></select></div><div><label>Last Date to Apply</label><input type="date"></div></div>
+<label>Job Description</label><textarea rows="4" placeholder="Write job role, skills required..."></textarea>
+<button class="btn">+ Publish Job</button>
+</form>
+</div>
+</body></html>

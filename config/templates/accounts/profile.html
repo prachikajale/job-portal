@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><title>My Profile</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:#F1F4F8}
+.navbar{background:#0F2340;color:white;padding:16px 40px;display:flex;justify-content:space-between;align-items:center}
+.navbar a{background:#C9A227;color:#0F2340;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:700;font-size:14px}
+.container{max-width:600px;margin:30px auto;padding:0 20px}
+.card{background:white;border-radius:18px;padding:35px;box-shadow:0 4px 15px rgba(0,0,0,0.08);border-top:5px solid #C9A227;text-align:center}
+.avatar{width:90px;height:90px;background:#C9A227;color:#0F2340;font-size:38px;font-weight:800;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 15px}
+.card h1{color:#0F2340;font-size:26px}
+.card p{color:#777;margin-top:5px}
+.row{display:flex;justify-content:space-between;background:#F8F9FA;padding:14px 18px;border-radius:10px;margin-top:14px;text-align:left}
+.row b{color:#0F2340}
+.btn{display:inline-block;margin-top:22px;background:#0F2340;color:white;padding:12px 26px;border-radius:10px;text-decoration:none;font-weight:700}
+</style></head><body>
+<div class="navbar"><b>🎓 Placement Portal | My Profile</b><a href="/accounts/dashboard/">Back</a></div>
+<div class="container"><div class="card">
+<div class="avatar">{{ user.username|first|upper }}</div>
+<h1>{{ user.username }}</h1><p>{{ user.email }}</p>
+<div class="row"><span>Role</span><b>{{ user.profile.role|default:"student" }}</b></div>
+<div class="row"><span>User ID</span><b>{{ user.id }}</b></div>
+<div class="row"><span>Username</span><b>{{ user.username }}</b></div>
+<div class="row"><span>Email</span><b>{{ user.email }}</b></div>
+<a class="btn" href="/accounts/dashboard/">← Back to Dashboard</a>
+</div></div></body></html>
